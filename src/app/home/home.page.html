@@ -1,20 +1,44 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Chateando...
+
+      <ion-input
+        type="text"
+        placeholder="¿Quién eres?"
+        [(ngModel)]="user"
+      ></ion-input>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card *ngFor="let message of messages">
+    <ion-card-header>{{message.user}} dice:</ion-card-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <ion-card-content>{{message.message}}</ion-card-content>
+  </ion-card>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-input
+      type="text"
+      placeholder="Escribe algo..."
+      [(ngModel)]="message"
+    ></ion-input>
+
+    <ion-buttons>
+      <ion-button (click)="enviar()">
+        Enviar
+
+        <ion-icon name="send"></ion-icon>
+      </ion-button>
+      <ion-button (click)="cantidad()">
+        Contar
+
+        <ion-icon name="plus"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
