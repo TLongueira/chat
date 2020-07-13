@@ -21,13 +21,10 @@ export class HomePage implements OnInit {
     this.fs.mandarMsj(data, this.id);
   }
 
-  cantidad(){
-    this.fs.registros();
-  }
-
   constructor(private fs: FireChatService) {
   }
   ngOnInit(): void {
+    /*
     this.fs.getmensajes().subscribe((msjSnap) => {
       this.messages = [];
       msjSnap.forEach((msjData: any) => {
@@ -38,6 +35,14 @@ export class HomePage implements OnInit {
         });
       });
     });
+    */
+
+    for (let index = 0; index <10; index++) {
+      this.messages.push({
+        message: 'hola',
+        user: 'usuario '+ index
+      });
+    }
   }
 }
 
