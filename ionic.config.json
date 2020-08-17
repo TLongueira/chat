@@ -1,0 +1,7 @@
+{
+  "name": "loginChat",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
